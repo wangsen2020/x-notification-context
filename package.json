@@ -1,0 +1,12 @@
+{
+  "name": "x-notification-context",
+  "version": "1.0.0",
+  "description": "Shows a compact preview of the original post directly under each reply in your X (Twitter) Notifications tab. 100% local, open-source, zero tracking.",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/wangsen2020/x-notification-context",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "pack": "node scripts/pack.mjs"
+  }
+}

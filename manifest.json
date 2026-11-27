@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "X Notification Context — Show Original Post on Replies",
+  "version": "1.0.0",
+  "description": "Shows a compact preview of the original post directly under each reply in your X (Twitter) Notifications tab. 100% local, open-source, zero tracking.",
+  "homepage_url": "https://github.com/wangsen2020/x-notification-context",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.fxtwitter.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "src/net-hook.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "src/content.js"
+      ],
+      "css": [
+        "src/content.css"
+      ],
+      "run_at": "document_idle",
+      "world": "ISOLATED"
+    }
+  ]
+}
